@@ -21,6 +21,10 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  return res.send("Welcome to ShikshaPrep's Server");
+});
+
 app.use("/api/auth", authRoutes);
 
 app.use("/api/tests", testsRoutes);
