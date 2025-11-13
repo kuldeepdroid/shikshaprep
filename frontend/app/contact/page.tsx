@@ -4,10 +4,10 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact | MockTestAI</title>
+        <title>Contact | ShikshaPrep</title>
         <meta
           name="description"
-          content="Contact MockTestAI for support, feedback, or collaboration."
+          content="Contact ShikshaPrep for support, feedback, or collaboration."
         />
       </Head>
 
@@ -44,7 +44,7 @@ export default function Contact() {
                 <li>
                   <p className="flex items-center space-x-2">
                     <a
-                      href="https://linkedin.com/company/mocktestai"
+                      href="https://linkedin.com/company/ShikshaPrep"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

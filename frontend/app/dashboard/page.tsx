@@ -37,6 +37,7 @@ import { FileUpload } from "@/components/file-upload"; // Corrected import path
 import { useAuth } from "@/contexts/auth-context";
 import { makeAuthenticatedRequest } from "@/utils/api";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { toast } from "sonner";
 
 interface MockTest {
   _id: string;
@@ -213,6 +214,7 @@ export default function DashboardPage() {
         a.download = `mock-test-${testId}.pdf`;
         a.click();
         window.URL.revokeObjectURL(url);
+        toast.success("Downloaded successfully");
       }
     } catch (err) {
       setError("Failed to download test");
@@ -264,7 +266,7 @@ export default function DashboardPage() {
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
               Welcome back,{" "}
-              {<span className="!capitalize">{user?.username}</span>}!{" "}
+              {<span className="capitalize">{user?.username}</span>}!{" "}
               {/* User's name is now consistently available */}
             </h1>
             <p className="text-gray-600">

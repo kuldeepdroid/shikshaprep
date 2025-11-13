@@ -30,22 +30,21 @@ export function Navbar() {
             <Link href="/" className="flex items-center space-x-2">
               <FileText className="h-8 w-8 text-blue-600" />
               <span className="font-bold text-xl text-gray-900">
-                MockTestAI
+                ShikshaPrep
               </span>
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center ">
             <Link
               href="/"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-gray-700 p-2 rounded-lg hover:bg-zinc-50 px-4 hover:text-blue-600 transition-colors"
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-gray-700 p-2 rounded-lg hover:bg-zinc-50 px-4 hover:text-blue-600 transition-colors"
             >
               About
             </Link>
@@ -53,23 +52,30 @@ export function Navbar() {
               <>
                 <Link
                   href="/dashboard"
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
+                  className="text-gray-700 p-2 rounded-lg hover:bg-zinc-50 px-4 hover:text-blue-600 transition-colors"
                 >
                   Dashboard
                 </Link>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="sm">
+                    <Button
+                      className="hover:bg-zinc-50 px-4 hover:text-blue-600 "
+                      variant="ghost"
+                      size="sm"
+                    >
                       <User className="h-4 w-4 mr-2" />
                       <span className="capitalize">{user?.username}</span>
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
-                    <DropdownMenuItem>
+                    <DropdownMenuItem className="hover:bg-zinc-50 px-4 hover:text-blue-600 ">
                       <User className="h-4 w-4 mr-2" />
                       Profile
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={handleLogout}>
+                    <DropdownMenuItem
+                      className="hover:bg-zinc-50 px-4 hover:text-blue-600 "
+                      onClick={handleLogout}
+                    >
                       <LogOut className="h-4 w-4 mr-2" />
                       Sign Out
                     </DropdownMenuItem>

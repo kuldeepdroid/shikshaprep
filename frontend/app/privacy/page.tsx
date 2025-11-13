@@ -4,10 +4,10 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Head>
-        <title>Privacy Policy | MockTestAI</title>
+        <title>Privacy Policy | ShikshaPrep</title>
         <meta
           name="description"
-          content="Privacy policy for MockTestAI users and data protection."
+          content="Privacy policy for ShikshaPrep users and data protection."
         />
       </Head>
 
@@ -45,20 +45,6 @@ export default function PrivacyPolicy() {
               <p>
                 All data is encrypted and stored securely. Uploaded files are
                 deleted after processing unless saved by the user.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="font-semibold text-gray-800">Contact</h2>
-              <p>
-                For questions or data requests, email us at{" "}
-                <a
-                  href="mailto:support@mocktestai.com"
-                  className="text-blue-600 underline"
-                >
-                  support@mocktestai.com
-                </a>
-                .
               </p>
             </div>
           </div>

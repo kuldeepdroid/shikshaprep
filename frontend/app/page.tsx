@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { Upload, Brain, Download, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -101,7 +102,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why Choose MockTestAI?
+                Why Choose ShikshaPrep?
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
@@ -152,8 +153,8 @@ export default function HomePage() {
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <img
-                src="/placeholder.svg?height=400&width=500"
-                alt="MockTestAI Dashboard"
+                src="https://eklavvya.com/Content/wp-content/uploads/2025/03/Mock-Test.webp"
+                alt="ShikshaPrep Dashboard"
                 className="w-full h-auto rounded-lg"
               />
             </div>
@@ -169,7 +170,7 @@ export default function HomePage() {
           </h2>
           <p className="text-xl text-blue-100 mb-8">
             Join thousands of students and educators who are already using
-            MockTestAI
+            ShikshaPrep
           </p>
           <StartTestButton />
         </div>
@@ -180,7 +181,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Upload className="h-8 w-8 text-blue-400" />
-            <span className="font-bold text-xl">MockTestAI</span>
+            <span className="font-bold text-xl">ShikshaPrep</span>
           </div>
           <p className="text-gray-400 mb-4">
             Transforming education through intelligent mock test generation
@@ -192,12 +193,7 @@ export default function HomePage() {
             >
               About
             </Link>
-            <Link
-              href="/contact"
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              Contact
-            </Link>
+
             <Link
               href="/privacy"
               className="text-gray-400 hover:text-white transition-colors"

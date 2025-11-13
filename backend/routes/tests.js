@@ -85,11 +85,14 @@ router.delete("/:id", authenticateToken, async (req, res) => {
 
 // Download test as PDF (placeholder)
 router.get("/:id/download", authenticateToken, async (req, res) => {
+  console.log("asjbabfbjajb");
   try {
     const test = await MockTest.findOne({
       _id: req.params.id,
       userId: req.user._id,
     });
+
+    console.log("testttt", test);
 
     if (!test) {
       return res.status(404).json({ error: "Test not found" });

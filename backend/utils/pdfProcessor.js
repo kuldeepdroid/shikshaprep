@@ -30,7 +30,7 @@ const processPDF = async (testId, filePath) => {
     }
 
     console.log(
-      `[PDF Processor] AI generated ${generatedQuestions.length} questions for test ${testId}.`
+      `[PDF Processor] AI generated ${generatedQuestions.questions?.length} questions for test ${testId}.`
     );
 
     // 3. Update the test with generated questions and set status to completed

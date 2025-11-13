@@ -58,8 +58,8 @@ export default function MockTestPage() {
   const [flaggedQuestions, setFlaggedQuestions] = useState<Set<number>>(
     new Set()
   );
-  const [timeLeft, setTimeLeft] = useState<number>(60); 
-  const [time, setTime] = useState<string>(""); 
+  const [timeLeft, setTimeLeft] = useState<number>(60);
+  const [time, setTime] = useState<string>("");
   const [isSetTime, setIsSetTime] = useState<boolean>(false);
   const [isTestStarted, setIsTestStarted] = useState<boolean>(false);
   const [isReview, setIsReview] = useState<boolean>(false);
@@ -74,9 +74,12 @@ export default function MockTestPage() {
   useEffect(() => {
     const getMockTests = async () => {
       try {
-        const response = await makeAuthenticatedRequest(`/api/tests/${testId}`, {
-          method: "GET",
-        });
+        const response = await makeAuthenticatedRequest(
+          `/api/tests/${testId}`,
+          {
+            method: "GET",
+          }
+        );
         if (response?.ok) {
           const testData: TestData = await response.json();
           setTestData(testData);
@@ -90,28 +93,40 @@ export default function MockTestPage() {
   }, [testId]);
 
   const convertToSeconds = (input: string): number => {
-    const trimmed = input.trim().toLowerCase();
+    if (!input) throw new Error("Empty duration string");
 
-    const regex = /^(\d+)([hms])$/; // Match formats like "30m", "1h", "45s"
-    const match = trimmed.match(regex);
+    const cleaned = input.toLowerCase();
 
-    if (!match) {
-      throw new Error("Invalid duration format. Use 'Xm', 'Xh', or 'Xs'.");
+    // Find ALL occurrences of "number + h/m/s"
+    const matches = cleaned.match(/\d+\s*[hms]/g);
+
+    if (!matches) {
+      throw new Error("No valid duration found in input.");
     }
 
-    const value = parseInt(match[1], 10);
-    const unit = match[2];
+    let totalSeconds = 0;
 
-    switch (unit) {
-      case "h":
-        return value * 3600;
-      case "m":
-        return value * 60;
-      case "s":
-        return value;
-      default:
-        throw new Error("Invalid time unit.");
+    for (const token of matches) {
+      const value = parseInt(token);
+      const unit = token.replace(/\d+/g, "").trim();
+
+      switch (unit) {
+        case "h":
+          totalSeconds += value * 3600;
+          break;
+        case "m":
+          totalSeconds += value * 60;
+          break;
+        case "s":
+          totalSeconds += value;
+          break;
+        default:
+          // Ignore unexpected tokens
+          break;
+      }
     }
+
+    return totalSeconds;
   };
 
   const formatDuration = (duration: string): string => {
@@ -144,7 +159,6 @@ export default function MockTestPage() {
     }
   }, [testData?.duration]);
 
-  
   useEffect(() => {
     if (!isTestStarted || isTestCompleted || isReview || timeLeft <= 0) return;
 
@@ -223,7 +237,8 @@ export default function MockTestPage() {
     const results = calculateResults();
 
     try {
-      const response = await makeAuthenticatedRequest(`/api/tests/${testId}/submit`,
+      const response = await makeAuthenticatedRequest(
+        `/api/tests/${testId}/submit`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
