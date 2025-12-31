@@ -117,7 +117,8 @@ export default function SignInPage() {
                 {error}
               </div>
             )}
-            <Button type="submit" className="w-full" disabled={isLoading}>
+            <Button type="submit"   className="w-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+              disabled={isLoading}>
               {isLoading ? "Signing In..." : "Sign In"}
             </Button>
           </form>

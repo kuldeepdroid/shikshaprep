@@ -8,14 +8,14 @@ import { useAuth } from "@/contexts/auth-context";
 const GetStarted = () => {
   const user = useAuth();
   return (
-    <>
+    <div className="bg-blue-600 text-white hover:bg-blue-700 rounded-md" >
       <Link href={user.user ? "/dashboard" : "/signup"}>
         <Button size="lg" className="text-lg px-8 py-3">
           Get Started Free
           <ArrowRight className="ml-2 h-5 w-5" />
         </Button>
       </Link>
-    </>
+    </div>
   );
 };
 

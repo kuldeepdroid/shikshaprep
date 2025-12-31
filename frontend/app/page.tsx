@@ -17,7 +17,6 @@ export default function HomePage() {
     <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100">
       <Navbar />
 
-      {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
@@ -30,13 +29,12 @@ export default function HomePage() {
             professionals preparing for exams.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <GetStarted />
+          <GetStarted />
             <Link href="/about">
               <Button
-                variant="outline"
                 size="lg"
-                className="text-lg px-8 py-3 bg-transparent"
-              >
+                className="text-lg px-8 py-3 bg-zinc-50 text-gray-900 border border-gray-300 hover:bg-gray-100"
+                >
                 Learn More
               </Button>
             </Link>
@@ -44,7 +42,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -96,7 +93,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -162,7 +158,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-600">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -176,7 +171,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">

@@ -67,8 +67,8 @@ export function Navbar() {
                       <span className="capitalize">{user?.username}</span>
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuItem className="hover:bg-zinc-50 px-4 hover:text-blue-600 ">
+                  <DropdownMenuContent align="end"  className="bg-zinc-50">
+                    <DropdownMenuItem className="hover:bg-zinc-50 bg- px-4 hover:text-blue-600 ">
                       <User className="h-4 w-4 mr-2" />
                       Profile
                     </DropdownMenuItem>
@@ -94,7 +94,6 @@ export function Navbar() {
             )}
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <Button
               variant="ghost"
@@ -110,7 +109,6 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -147,12 +145,12 @@ export function Navbar() {
               ) : (
                 <div className="space-y-2 pt-2">
                   <Link href="/signin" onClick={() => setIsOpen(false)}>
-                    <Button variant="ghost" className="w-full justify-start">
+                    <Button variant="ghost" className="w-full cursor-pointer justify-start">
                       Sign In
                     </Button>
                   </Link>
                   <Link href="/signup" onClick={() => setIsOpen(false)}>
-                    <Button className="w-full">Sign Up</Button>
+                    <Button className="w-full cursor-pointer">Sign Up</Button>
                   </Link>
                 </div>
               )}
