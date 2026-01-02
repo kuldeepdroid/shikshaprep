@@ -151,7 +151,7 @@ export default function SignInPage() {
               className="w-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
               disabled={isGuestLoading}
             >
-              {isLoading ? "Signing In..." : "Guest Login"}
+              {isGuestLoading ? "Signing In..." : "Guest Login"}
             </Button>
           </form>
 
