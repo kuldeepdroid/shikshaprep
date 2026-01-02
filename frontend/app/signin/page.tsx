@@ -14,7 +14,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
 import { useAuth } from "@/contexts/auth-context";
 import { useRouter } from "next/navigation";
 
@@ -27,8 +26,30 @@ export default function SignInPage() {
   });
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isGuestLoading, setIsGuestLoading] = useState(false);
   const { login } = useAuth();
   const router = useRouter();
+
+  const handleGuestLogin = async () => {
+    setError("");
+    setIsGuestLoading(true);
+
+    const result = await login(
+      process.env.NEXT_GUEST_EMAIL as string,
+      process.env.NEXT_PUBLIC_API_URL as string
+    );
+
+    if (result.success) {
+      router.push("/dashboard");
+    } else {
+      setError(result.error || "Login failed");
+      setTimeout(() => {
+        setError("");
+      }, 4000);
+    }
+
+    setIsLoading(false);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -117,9 +138,20 @@ export default function SignInPage() {
                 {error}
               </div>
             )}
-            <Button type="submit"   className="w-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
-              disabled={isLoading}>
+            <Button
+              type="submit"
+              className="w-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+              disabled={isLoading}
+            >
               {isLoading ? "Signing In..." : "Sign In"}
+            </Button>
+
+            <Button
+              onClick={handleGuestLogin}
+              className="w-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+              disabled={isGuestLoading}
+            >
+              {isLoading ? "Signing In..." : "Guest Login"}
             </Button>
           </form>
 
