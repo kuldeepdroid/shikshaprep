@@ -79,7 +79,7 @@ export default function SignUpPage() {
         <CardHeader className="text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <FileText className="h-8 w-8 text-blue-600" />
-            <span className="font-bold text-xl text-gray-900">MockTestAI</span>
+            <span className="font-bold text-xl text-gray-900">ShikshaPrep</span>
           </div>
           <CardTitle className="text-2xl">Create your account</CardTitle>
           <CardDescription>
