@@ -48,7 +48,7 @@ export default function SignInPage() {
       }, 4000);
     }
 
-    setIsLoading(false);
+    setIsGuestLoading(false);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
