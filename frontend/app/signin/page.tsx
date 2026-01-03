@@ -36,8 +36,10 @@ export default function SignInPage() {
 
     const result = await login(
       process.env.NEXT_GUEST_EMAIL as string,
-      process.env.NEXT_PUBLIC_API_URL as string
+      process.env.NEXT_GUEST_PASSWORD as string
     );
+
+    console.log(result);
 
     if (result.success) {
       router.push("/dashboard");
