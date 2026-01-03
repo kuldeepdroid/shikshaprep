@@ -35,8 +35,8 @@ export default function SignInPage() {
     setIsGuestLoading(true);
 
     const result = await login(
-      process.env.NEXT_GUEST_EMAIL as string,
-      process.env.NEXT_GUEST_PASSWORD as string
+      process.env.NEXT_PUBLIC_GUEST_EMAIL as string,
+      process.env.NEXT_PUBLIC_GUEST_PASSWORD as string
     );
 
     console.log(result);
